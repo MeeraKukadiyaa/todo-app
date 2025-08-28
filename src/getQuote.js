@@ -17,7 +17,7 @@ export default function GetQuote({ form, setForm, record }) {
   };
   const [quoteData, setQuoteData] = useState(defaultQuoteData);
 
-useEffect(() => {
+  useEffect(() => {
     if (record) {
       setQuoteData({
         name: record.name || '',
@@ -42,7 +42,7 @@ useEffect(() => {
     e.preventDefault();
     if (Object.values(quoteData).some(value => value === '')) return;
     try {
-      await axios.post('http://localhost:4000/requests', quoteData);
+      await axios.post(`${process.env.REACT_APP_API_URL}/requests`, quoteData);
       setForm(false);
       setQuoteData(defaultQuoteData);
       alert('Request sent !');

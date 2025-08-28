@@ -68,11 +68,11 @@ export default function AdminLogin() {
     const fetchQuotes = async () => {
       try {
         if (tab === "requests") {
-          const req = await axios.get('http://localhost:4000/requests');
+          const req = await axios.get(`${process.env.REACT_APP_API_URL}/requests`);
           setRequestHistory(req.data);
         }
         if (tab === "messages") {
-          const msg = await axios.get('http://localhost:4000/messages');
+          const msg = await axios.get(`${process.env.REACT_APP_API_URL}/messages`);
           setHistory(msg.data);
         }
       } catch (err) {

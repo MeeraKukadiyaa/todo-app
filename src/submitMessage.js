@@ -23,7 +23,7 @@ export default function SubmitMessage({ admin, setForm, record }) {
     e.preventDefault();
     if (Object.values(formData).some(value => value === '')) return;
     try {
-      await axios.post('http://localhost:4000/messages', formData);
+      await axios.post(`${process.env.REACT_APP_API_URL}/messages`, formData);
       setFormHistory(false);
       setFormData(defaultData);
       alert("Message Sent!");
