@@ -1,0 +1,131 @@
+{
+  "requests": [
+    {
+      "name": "meera",
+      "email": "meerakukadiya@gmail.com",
+      "shopwareDevelopment": true,
+      "updatesMaintenance": true,
+      "customPluginDevelopment": true,
+      "themeDevelopment": false,
+      "other": false,
+      "projectDescription": "hii",
+      "budget": 7000,
+      "timestamp": "2025-08-20T15:52:08.261Z"
+    },
+    {
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "shopwareDevelopment": true,
+      "updatesMaintenance": true,
+      "customPluginDevelopment": true,
+      "themeDevelopment": true,
+      "other": true,
+      "projectDescription": "description",
+      "budget": 21000,
+      "timestamp": "2025-08-20T16:04:17.328Z"
+    },
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "shopwareDevelopment": false,
+      "updatesMaintenance": true,
+      "customPluginDevelopment": true,
+      "themeDevelopment": true,
+      "other": false,
+      "projectDescription": "aa",
+      "budget": 29500,
+      "timestamp": "2025-08-20T16:16:48.903Z"
+    },
+    {
+      "name": "hello",
+      "email": "hello@gmail.com",
+      "shopwareDevelopment": false,
+      "updatesMaintenance": true,
+      "customPluginDevelopment": true,
+      "themeDevelopment": true,
+      "other": false,
+      "projectDescription": "hello",
+      "budget": 17000,
+      "timestamp": "2025-08-20T16:35:21.091Z"
+    }
+  ],
+  "messages": [
+    {
+      "name": "meera",
+      "email": "meerakukadiya@gmail.com",
+      "subject": "hii",
+      "message": "helloooo",
+      "timestamp": "2025-08-20T16:03:19.630Z"
+    },
+    {
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "subject": "abc",
+      "message": "abc abc",
+      "timestamp": "2025-08-20T16:03:46.765Z"
+    },
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "subject": "hello ",
+      "message": "hellloooo",
+      "timestamp": "2025-08-20T16:12:57.028Z"
+    },
+    {
+      "name": "Meera",
+      "email": "meerakukadiya07@gmail.com",
+      "subject": "test",
+      "message": "Test",
+      "timestamp": "2025-08-23T15:55:42.157Z"
+    },
+    {
+      "name": "meera kukadiya",
+      "email": "meera@gmail.com",
+      "subject": "test",
+      "message": "test",
+      "timestamp": "2025-08-24T06:15:44.218Z"
+    },
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "subject": "test",
+      "message": "test",
+      "timestamp": "2025-08-25T06:10:17.343Z"
+    },
+    {
+      "name": "test123",
+      "email": "test@gmail.com",
+      "subject": "test",
+      "message": "hii\n",
+      "timestamp": "2025-08-25T06:33:01.161Z"
+    },
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "subject": "testing",
+      "message": "hello",
+      "timestamp": "2025-08-25T06:51:16.540Z"
+    },
+    {
+      "name": "shobhna",
+      "email": "shobhnakukadiya58@gmail.com",
+      "subject": "test",
+      "message": "hiiii",
+      "timestamp": "2025-08-25T06:53:28.125Z"
+    },
+    {
+      "name": "shobhna",
+      "email": "shobhnakukadiya58@gmail.com",
+      "subject": "test",
+      "message": "hiii",
+      "timestamp": "2025-08-25T06:54:24.457Z"
+    },
+    {
+      "name": "Meera",
+      "email": "shobhnakukadiya58@gmail.com",
+      "subject": "test",
+      "message": "helloooo",
+      "timestamp": "2025-08-25T06:55:34.132Z"
+    }
+  ]
+}
