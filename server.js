@@ -5,9 +5,14 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
+// ✅ Allow requests from frontend
+app.use(cors({
+  origin: ["http://localhost:3000", "https://todo-infotech.vercel.app"], 
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 const PORT = 4000;
 
-app.use(cors());
 app.use(express.json());
 
 mongoose
@@ -50,7 +55,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // POST: Save data & send mail
-app.post('/:endpoint', async (req, res) => {
+app.post('/api/:endpoint', async (req, res) => {
   try {
     const endpoint = req.params.endpoint;
     let data;
@@ -112,7 +117,7 @@ app.post('/:endpoint', async (req, res) => {
 });
 
 // GET: Fetch data from dynamic endpoint
-app.get('/:endpoint', async (req, res) => {
+app.get('/api/:endpoint', async (req, res) => {
   try {
     const endpoint = req.params.endpoint;
     let data;
@@ -127,7 +132,7 @@ app.get('/:endpoint', async (req, res) => {
   }
 });
 
-app.delete('/:endpoint/:id', async (req, res) => {
+app.delete('/api/:endpoint/:id', async (req, res) => {
   try {
     const { endpoint, id } = req.params;
     let Model;

@@ -24,7 +24,6 @@ const fadeLeft = {
   transition: { duration: 0.7, ease: 'easeInOut' }
 };
 
-
 export default function Hero() {
   const { t } = useTranslation();
   const defaultData = { name: '', email: '', subject: '', message: '' }
@@ -141,28 +140,6 @@ export default function Hero() {
     },
   ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (Object.values(formData).some(value => value === '')) return;
-    try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/messages`, formData);
-      setFormHistory(false);
-      setFormData(defaultData);
-      alert("Message Sent!");
-    } catch (err) {
-      console.error("Failed to submit quote:", err);
-      alert("Failed to submit request")
-    }
-  }
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
   return (
     <>
       <Section
@@ -269,19 +246,6 @@ export default function Hero() {
           <div className="container">
             <div style={{ maxWidth: '48rem', margin: '0 auto' }}>
               <Heading title={t('getInTouch')} desc={t('contactDescription')} />
-              {/* <form>
-                <div className="form-main">
-                  <div className="row">
-                    <div className="form-inner"><label>{t('name')}</label><input name="name" required placeholder={t('namePlaceholder')} id="name" value={formData.name} onChange={handleInputChange} /></div>
-                    <div className="form-inner"><label>{t('email')}</label><input name="email" required placeholder={t('emailPlaceholder')} id="email" value={formData.email} onChange={handleInputChange} /></div>
-                  </div>
-                  <div className="form-inner"><label>{t('subject')}</label><input name="subject" required placeholder={t('subjectPlaceholder')} id="subject" value={formData.subject} onChange={handleInputChange} /></div>
-                  <div className="form-inner"><label>{t('message')}</label><textarea name="message" required placeholder={t('messagePlaceholder')} id="message" rows={4} cols={50} value={formData.message} onChange={handleInputChange} /></div>
-                </div>
-                <div className="form-submit">
-                  <button type="submit" onClick={handleSubmit} className="btn-gradient">{t('sendMessage')}</button>
-                </div>
-              </form> */}
               <SubmitMessage />
             </div>
           </div>

@@ -2,6 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTranslation } from "./hooks/useTranslation";
 
+const API_URL = process.env.NODE_ENV === "production"
+  ? "https://todo-infotech.vercel.app/api"
+  : "http://localhost:4000/api";
+
+
 export default function SubmitMessage({ admin, setForm, record }) {
   const { t } = useTranslation();
   const [formHistory, setFormHistory] = useState([]);
@@ -23,7 +28,7 @@ export default function SubmitMessage({ admin, setForm, record }) {
     e.preventDefault();
     if (Object.values(formData).some(value => value === '')) return;
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/messages`, formData);
+      await axios.post(`${API_URL}/messages`, formData);
       setFormHistory(false);
       setFormData(defaultData);
       alert("Message Sent!");

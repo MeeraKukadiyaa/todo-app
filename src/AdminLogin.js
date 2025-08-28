@@ -22,6 +22,10 @@ const serviceKeys = [
   "other"
 ];
 
+const API_URL = process.env.NODE_ENV === "production"
+  ? "https://todo-infotech.vercel.app/api"
+  : "http://localhost:4000/api";
+
 export default function AdminLogin() {
   const dialogRef = useRef(null);
   const addDialogRef = useRef(null);
@@ -68,11 +72,11 @@ export default function AdminLogin() {
     const fetchQuotes = async () => {
       try {
         if (tab === "requests") {
-          const req = await axios.get(`${process.env.REACT_APP_API_URL}/requests`);
+          const req = await axios.get(`${API_URL}/requests`);
           setRequestHistory(req.data);
         }
         if (tab === "messages") {
-          const msg = await axios.get(`${process.env.REACT_APP_API_URL}/messages`);
+          const msg = await axios.get(`${API_URL}/messages`);
           setHistory(msg.data);
         }
       } catch (err) {
@@ -126,7 +130,7 @@ export default function AdminLogin() {
     if (!window.confirm("Are you sure you want to delete this?")) return;
 
     try {
-      await axios.delete(`http://localhost:4000/${type}/${id}`);
+      await axios.delete(`${API_URL}/${type}/${id}`);
       if (type === "messages") {
         setHistory(history.filter(h => h._id !== id));
       } else {
