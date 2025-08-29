@@ -61,7 +61,7 @@ export default function Header() {
           <h2 className="title">{t('companyName')}</h2>
         </div>
         <div className='header-sec2'>
-          <ul className={`${open ? 'show' : 'list'}`}>
+          <ul className={`mobile-nav ${open ? 'mobile-nav-open' : ''}`}>
             <li><a href='#services'>{t('services')}</a></li>
             <li><a href='#about'>{t('about')}</a></li>
             <li><a href='#testimonials'>{t('testimonials')}</a></li>

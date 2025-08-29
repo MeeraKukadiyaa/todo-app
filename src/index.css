@@ -228,40 +228,54 @@ code {
   transition: 5s all ease-out;
 }
 
-.list li a,
-.show li a {
+.header-sec2 li a,
+.header-sec2 li a {
   font-weight: 500;
   color: #FFFFFFCC;
 }
 
-.list li a:hover,
-.show li a:hover {
+.header-sec2 li a:hover,
+.header-sec2 li a:hover {
   color: #FFF;
 }
 
-@media (max-width: 768px) {
-  .header .list {
-    display: none;
-  }
+.mobile-nav {
+  display: none;
+}
 
-  .header .show {
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-open {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
-    gap: 1rem;
     width: 100vw;
-    z-index: 99;
+    gap: 1rem;
     padding: 1.5rem;
     background-image: linear-gradient(to top left, #264d8d, #653195);
+    z-index: 99;
     border-bottom: 1px solid #9d9d9d70;
+    animation: fadeDown 0.3s ease-in-out;
   }
 
   .header-menu {
-    display: flex;
-    align-items: center;
+    display: block;
     cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .header-menu {
+    display: none;
   }
 }
 
@@ -1305,6 +1319,25 @@ input[type="checkbox"]:focus-visible {
   padding: 0 1rem !important;
 }
 
+@media (max-width: 768px) {
+  .quote-dialog {
+    padding: 1rem;
+    min-width: 0;
+    margin: auto;
+  }
+
+  .form-main .row {
+    flex-direction: column;
+  }
+
+  .services-check {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .quote-dialog .form-main {
+    gap: 1rem;
+  }
+}
 
 /************************************************  Filter *************************************************/
 
