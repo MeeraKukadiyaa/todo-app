@@ -130,7 +130,7 @@ export default function AdminLogin() {
     if (!window.confirm("Are you sure you want to delete this?")) return;
 
     try {
-      await axios.delete(`${API_URL}/${type}/${id}`);
+      await axios.delete(`${API_URL}/${type}?id=${id}`);
       if (type === "messages") {
         setHistory(history.filter(h => h._id !== id));
       } else {
