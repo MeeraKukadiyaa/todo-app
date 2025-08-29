@@ -1,5 +1,5 @@
 import connectDB from "../src/lib/mongodb";
-import Message from "../models/Message";
+import Message from "../src/models/messages";
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
