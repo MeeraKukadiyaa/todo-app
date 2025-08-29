@@ -1,5 +1,5 @@
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../translations';
+import { useLanguage } from '../contexts/LanguageContext.js';
+import { translations } from '../translations/index.js';
 
 export const useTranslation = () => {
   const { currentLanguage } = useLanguage();

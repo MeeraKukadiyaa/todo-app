@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useTranslation } from "./hooks/useTranslation";
+import { useTranslation } from "./hooks/useTranslation.js";
 
 const API_URL = process.env.NODE_ENV === "production"
   ? "https://todo-infotech.vercel.app/api"

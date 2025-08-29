@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "./contexts/LanguageContext";
-import GetQuote from "./getQuote";
-import { useTranslation } from "./hooks/useTranslation";
+import { useLanguage } from "./contexts/LanguageContext.js";
+import GetQuote from "./getQuote.js";
+import { useTranslation } from "./hooks/useTranslation.js";
 
 export default function Header() {
   const { t } = useTranslation();

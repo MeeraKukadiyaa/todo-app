@@ -1,9 +1,8 @@
-import axios from "axios";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import GetQuote from "./getQuote";
-import { useTranslation } from "./hooks/useTranslation";
-import SubmitMessage from "./submitMessage";
+import GetQuote from "./getQuote.js";
+import { useTranslation } from "./hooks/useTranslation.js";
+import SubmitMessage from "./submitMessage.js";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },

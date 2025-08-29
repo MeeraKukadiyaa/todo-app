@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+// const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema({
   name: String,
@@ -13,4 +14,4 @@ const RequestSchema = new mongoose.Schema({
   time: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Request || mongoose.model("Request", RequestSchema);
+export default mongoose.model("Request", RequestSchema);

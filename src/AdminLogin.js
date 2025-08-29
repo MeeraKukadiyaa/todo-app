@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { UploadDropzone } from "react-uploader";
 import { Uploader } from "uploader";
-import GetQuote from "./getQuote";
-import SubmitMessage from "./submitMessage";
+import GetQuote from "./getQuote.js";
+import SubmitMessage from "./submitMessage.js";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },

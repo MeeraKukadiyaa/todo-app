@@ -1,10 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import AdminLogin from './AdminLogin';
-import { LanguageProvider } from './contexts/LanguageContext';
-import Footer from './footer';
-import Header from './header';
-import Hero from './page';
-import { ToastContainer } from 'react-toastify';
+import AdminLogin from './AdminLogin.js';
+import { LanguageProvider } from './contexts/LanguageContext.js';
+import Footer from './footer.js';
+import Header from './header.js';
+import Hero from './page.js';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/" element={
             <div className='main'>
-              <ToastContainer />
               <Header />
               <main>
                 <Hero />
