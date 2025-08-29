@@ -169,9 +169,12 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
+import path from "path";
+import { fileURLToPath } from "url";
 import Message from "./src/models/messages.js";
 import Request from "./src/models/requests.js";
-dotenv.config();
+dotenv.config({ debug: false });
+
 
 // const Request = require("./src/models/requests");
 // const Message = require("./src/models/messages");
@@ -193,10 +196,10 @@ mongoose
 
 // Nodemailer Transport
 const transporter = nodemailer.createTransport({
-  service: "gmail", // you can switch to SMTP if needed
+  service: "gmail",
   auth: {
-    user: process.env.EMAIL, // your Gmail address
-    pass: process.env.EMAIL_PASS, // app password (not raw Gmail password)
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -283,6 +286,18 @@ app.delete("/api/messages/:id", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from the React build folder
+app.use(express.static(path.join(__dirname, "build")));
+
+// SPA fallback — send index.html for all non-API routes
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 
 // Start server
 app.listen(PORT, () => {
