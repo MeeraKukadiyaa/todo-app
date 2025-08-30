@@ -235,6 +235,20 @@ app.get("/api/requests", async (req, res) => {
   }
 });
 
+// PUT /api/requests
+app.put("/api/requests", async (req, res) => {
+  try {
+    const { id } = req.query; // pass id in query like /api/requests?id=123
+    const updated = await Request.findByIdAndUpdate(id, req.body, {
+      new: true, runValidators: true
+    });
+    if (!updated) return res.status(404).json({ error: "Request not found" });
+    res.status(200).json({ status: "updated", data: updated });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // DELETE /api/requests/:id
 app.delete("/api/requests/:id", async (req, res) => {
   try {
@@ -272,6 +286,20 @@ app.get("/api/messages", async (req, res) => {
   try {
     const messages = await Message.find().sort({ createdAt: -1 });
     res.json(messages);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// PUT /api/messages
+app.put("/api/messages", async (req, res) => {
+  try {
+    const { id } = req.query; // pass id in query like /api/messages?id=123
+    const updated = await Message.findByIdAndUpdate(id, req.body, {
+      new: true, runValidators: true
+    });
+    if (!updated) return res.status(404).json({ error: "Message not found" });
+    res.status(200).json({ status: "updated", data: updated });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

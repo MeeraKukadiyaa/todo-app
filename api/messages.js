@@ -44,6 +44,17 @@ export default async function handler(req, res) {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
+  } else if (req.method === "PUT") {
+    try {
+      const { id } = req.query;
+      const updated = await Message.findByIdAndUpdate(id, req.body, {
+        new: true, runValidators: true
+      });
+      if (!updated) return res.status(404).json({ error: "Message not found" });
+      res.status(200).json({ status: "updated", data: updated });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
   } else if (req.method === "DELETE") {
     try {
       const { id } = req.query;

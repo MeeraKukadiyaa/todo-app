@@ -6,7 +6,7 @@ const API_URL = process.env.NODE_ENV === "production"
   ? "https://todo-infotech.vercel.app/api"
   : "http://localhost:4000/api";
 
-export default function GetQuote({ form, setForm, record }) {
+export default function GetQuote({ setForm, record }) {
   const { t } = useTranslation();
   const defaultQuoteData = {
     name: '',
@@ -46,10 +46,15 @@ export default function GetQuote({ form, setForm, record }) {
     e.preventDefault();
     if (Object.values(quoteData).some(value => value === '')) return;
     try {
-      await axios.post(`${API_URL}/requests`, quoteData);
+      if (record?._id) {
+        await axios.put(`${API_URL}/requests?id=${record._id}`, quoteData);
+        alert("Request Updated!");
+      } else {
+        await axios.post(`${API_URL}/requests`, quoteData);
+        alert("Request Sent!");
+      }
       setForm(false);
       setQuoteData(defaultQuoteData);
-      alert('Request sent !');
     } catch (err) {
       console.error("Failed to submit quote:", err);
       alert("Failed to submit request")
@@ -108,7 +113,9 @@ export default function GetQuote({ form, setForm, record }) {
               <input type="range" min="1000" max="50000" step="500" value={quoteData.budget} onChange={handleBudgetChange} onWheel={handleBudgetWheel} />
             </div>
           </div>
-          <button className="btn-gradient" onClick={handleSubmit}>{t('submitReq')}</button>
+          <button className="btn-gradient" onClick={handleSubmit}>
+            {record?._id ? "Update Request" : t('submitReq')}
+          </button>
         </div>
       </form>
     </>

@@ -28,10 +28,16 @@ export default function SubmitMessage({ admin, setForm, record }) {
     e.preventDefault();
     if (Object.values(formData).some(value => value === '')) return;
     try {
-      await axios.post(`${API_URL}/messages`, formData);
+      if (record?._id) {
+        await axios.put(`${API_URL}/messages?id=${record._id}`, formData);
+        alert("Message Updated!");
+      } else {
+        await axios.post(`${API_URL}/messages`, formData);
+        alert("Message Sent!");
+      }
+
       setFormHistory(false);
       setFormData(defaultData);
-      alert("Message Sent!");
       if (admin) setForm(false);
     } catch (err) {
       console.error("Failed to submit quote:", err);
@@ -69,7 +75,7 @@ export default function SubmitMessage({ admin, setForm, record }) {
       </div>
       {admin ?
         <div className="form-submit" style={{ display: "flex", justifyContent: "center", marginTop: '20px' }}>
-          <button type="submit" onClick={handleSubmit} className="btn-gradient">Add Message</button>
+          <button type="submit" onClick={handleSubmit} className="btn-gradient">{record?._id ? "Update Message" : "Add Message"}</button>
         </div>
         :
         <div className="form-submit">
